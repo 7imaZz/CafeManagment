@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@mipmap/background"
+    android:gravity="center"
+    android:padding="25dp"
+    tools:context=".Activities.OwnerActivity2">
+
+    <Button
+        android:id="@+id/btn_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Orders"/>
+    <Button
+        android:id="@+id/btn_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="History"/>
+    <Button
+        android:id="@+id/btn_change_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change User name"/>
+    <Button
+        android:id="@+id/btn_change_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Password"/>
+    <Button
+        android:id="@+id/btn_add_drinks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add New Drink"/>
+
+</LinearLayout>

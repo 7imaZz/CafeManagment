@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@mipmap/background"
+    tools:context=".Activities.ChangeUsernameActivity">
+
+    <EditText
+        android:id="@+id/ed_new_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter New Username"
+        android:backgroundTint="@android:color/white"/>
+    <EditText
+        android:id="@+id/ed_re_new_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Confirm New Username"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+    <EditText
+        android:id="@+id/ed_pass_n_u_a"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter Old Password"
+        android:inputType="textPassword"
+        android:backgroundTint="@android:color/white"/>
+    <Button
+        android:id="@+id/btn_new_user_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Confirm"/>
+
+</LinearLayout>

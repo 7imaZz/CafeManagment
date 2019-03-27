@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@mipmap/background"
+    android:padding="25dp"
+    tools:context=".Activities.CreateAccountActivity">
+
+    <EditText
+        android:id="@+id/ed_old_username_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter Old Username"
+        android:inputType="textPassword"
+        android:backgroundTint="@android:color/white"/>
+    <EditText
+        android:id="@+id/ed_old_pass_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter Old Password"
+        android:inputType="textPassword"
+        android:backgroundTint="@android:color/white"/>
+    <EditText
+        android:id="@+id/ed_new_username_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter New Username"
+        android:backgroundTint="@android:color/white"/>
+    <EditText
+        android:id="@+id/ed_new_password_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:hint="Enter New Password"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:inputType="textPassword"/>
+    <Button
+        android:id="@+id/btn_confirm_create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Confirm"/>
+
+</LinearLayout>
