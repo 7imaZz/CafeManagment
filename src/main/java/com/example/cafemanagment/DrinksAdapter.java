@@ -7,7 +7,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class DrinksAdapter extends ArrayAdapter<Drinks> {
     public DrinksAdapter(Context context, ArrayList<Drinks> drinks) {
@@ -29,6 +31,12 @@ public class DrinksAdapter extends ArrayAdapter<Drinks> {
 
         TextView priceTextView = currentView.findViewById(R.id.tv_drink_price);
         priceTextView.setText(drinks.getPrice()+"$");
+
+        TextView dateTextView = currentView.findViewById(R.id.tv_date);
+        dateTextView.setText(drinks.getDate());
+
+        TextView timeTextView = currentView.findViewById(R.id.tv_time);
+        timeTextView.setText(drinks.getTime());
 
         return currentView;
     }

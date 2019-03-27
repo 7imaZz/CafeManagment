@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cafemanagment.DB.DrinksDB;
 import com.example.cafemanagment.Drinks;
@@ -54,6 +55,7 @@ public class CustomerActivity extends AppCompatActivity {
 
         spinnerDrinks.add(0, "Select Your Drink");
 
+
         ArrayList <Drinks> drinks = db.getAllDrinks();
 
         for (int i=0; i<drinks.size(); i++){
@@ -90,6 +92,8 @@ public class CustomerActivity extends AppCompatActivity {
                     String numberOnly= str.replaceAll("[^0-9]", "");
                     price = Integer.parseInt(numberOnly);
                 }
+                if (calcClicked)
+                    updateBill();
             }
 
             @Override
@@ -122,8 +126,20 @@ public class CustomerActivity extends AppCompatActivity {
         calculateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calcClicked = true;
-                updateBill();
+                if (nameEditText.getText().toString().isEmpty()){
+                    nameEditText.setText("Unknown");
+                }
+                if (tableNumberEditText.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please Enter Table Number!", Toast.LENGTH_SHORT).show();
+                }else if (drinksSpinner.getSelectedItemPosition() == 0){
+                    Toast.makeText(getApplicationContext(), "Please Choose Drink!", Toast.LENGTH_SHORT).show();
+                }else if (quantity == 0){
+                    Toast.makeText(getApplicationContext(), "Please Define The Quantity That You Need!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    calcClicked = true;
+                    updateBill();
+                }
             }
         });
 

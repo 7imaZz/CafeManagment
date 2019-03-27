@@ -23,7 +23,6 @@ public class OwnerActivity extends AppCompatActivity {
 
     private EditText usernameEditText, passwordEditText;
     private Button loginButton, signUpButton;
-    private TextView createTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +37,6 @@ public class OwnerActivity extends AppCompatActivity {
         loginButton = findViewById(R.id.btn_login);
         signUpButton = findViewById(R.id.btn_sign_up);
 
-        createTextView = findViewById(R.id.tv_create_ac);
 
         final Cursor cursor = db.getReadableDatabase().rawQuery("select * from login", null);
 
@@ -58,13 +56,6 @@ public class OwnerActivity extends AppCompatActivity {
             }
         });
 
-        createTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OwnerActivity.this, CreateAccountActivity.class);
-                startActivity(intent);
-            }
-        });
 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +66,6 @@ public class OwnerActivity extends AppCompatActivity {
         });
 
         if (cursor.getCount() > 0) {
-            createTextView.setVisibility(View.GONE);
             signUpButton.setVisibility(View.GONE);
         }
 
