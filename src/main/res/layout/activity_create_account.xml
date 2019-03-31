@@ -16,7 +16,6 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:hint="Enter Old Username"
-        android:inputType="textPassword"
         android:backgroundTint="@android:color/white"/>
     <EditText
         android:id="@+id/ed_old_pass_create"
@@ -48,6 +47,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Confirm"/>
+        android:text="Confirm" />
 
 </LinearLayout>

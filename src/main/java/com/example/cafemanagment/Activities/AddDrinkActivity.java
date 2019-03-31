@@ -5,12 +5,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -25,13 +23,15 @@ import java.util.ArrayList;
 
 public class AddDrinkActivity extends AppCompatActivity {
 
-    DrinksDB db = new DrinksDB(this);
+    DrinksDB db;
     ListView drinksListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_drink);
+
+        db = new DrinksDB(this);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -113,7 +113,7 @@ public class AddDrinkActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.drink_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

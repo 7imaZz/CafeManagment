@@ -1,6 +1,5 @@
 package com.example.cafemanagment.Activities;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,9 +13,9 @@ import com.example.cafemanagment.Constants;
 import com.example.cafemanagment.DB.LoginDB;
 import com.example.cafemanagment.R;
 
-public class ChangeUsernameActivity extends AppCompatActivity {
+public class ChangePasswordActivity extends AppCompatActivity {
 
-    EditText newUsernameEditText, confirmUsername, passwordEditText;
+    EditText newPassEditText, confirmPass, oldPasswordEditText;
     Button confirmButton;
     LoginDB db;
     Cursor cursor;
@@ -24,7 +23,7 @@ public class ChangeUsernameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_username);
+        setContentView(R.layout.activity_change_password);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -32,18 +31,19 @@ public class ChangeUsernameActivity extends AppCompatActivity {
         cursor = db.getReadableDatabase().rawQuery("select * from login", null);
         cursor.moveToFirst();
 
-        newUsernameEditText = findViewById(R.id.ed_new_user_name);
-        confirmUsername = findViewById(R.id.ed_re_new_user_name);
-        passwordEditText = findViewById(R.id.ed_pass_n_u_a);
-        confirmButton = findViewById(R.id.btn_new_user_confirm);
+        newPassEditText = findViewById(R.id.ed_new_password);
+        confirmPass = findViewById(R.id.ed_re_new_password);
+        oldPasswordEditText = findViewById(R.id.ed_pass_old_pass);
+
+        confirmButton = findViewById(R.id.btn_new_pass_confirm);
 
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (cursor.getCount() == 0) {
-                    if (passwordEditText.getText().toString().equals(Constants.PASSWORD)
-                            && newUsernameEditText.getText().toString().equals(confirmUsername.getText().toString())) {
-                        db.insert(newUsernameEditText.getText().toString(), Constants.PASSWORD);
+                    if (oldPasswordEditText.getText().toString().equals(Constants.PASSWORD)
+                            && newPassEditText.getText().toString().equals(confirmPass.getText().toString())) {
+                        db.insert(Constants.USERNAME, newPassEditText.getText().toString());
                         Toast.makeText(getApplicationContext(), "Username Changed", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {
@@ -52,9 +52,9 @@ public class ChangeUsernameActivity extends AppCompatActivity {
                 } else {
                     String passwrd = cursor.getString(cursor.getColumnIndex("password"));
 
-                    if (passwordEditText.getText().toString().equals(passwrd)
-                            && newUsernameEditText.getText().toString().equals(confirmUsername.getText().toString())) {
-                        db.changeUser(newUsernameEditText.getText().toString());
+                    if (oldPasswordEditText.getText().toString().equals(passwrd)
+                            && newPassEditText.getText().toString().equals(confirmPass.getText().toString())) {
+                        db.changePass(newPassEditText.getText().toString());
                         Toast.makeText(getApplicationContext(), "Username Changed", Toast.LENGTH_SHORT).show();
                         finish();
                     } else {

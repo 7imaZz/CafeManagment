@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:title="Reset All Tables Funds"
+        android:id="@+id/reset_funds"
+        app:showAsAction="never"/>
+    <item
+        android:title="Add new Table"
+        android:id="@+id/add_new_table"
+        android:icon="@drawable/item1"
+        app:showAsAction="always"/>
+</menu>

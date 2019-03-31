@@ -18,7 +18,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     EditText oldUsernameEditText, oldPasswordEditText, newUsernameEditText, newPasswordEditText;
     Button confirmButton;
 
-    LoginDB db = new LoginDB(this);
+    LoginDB db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +27,8 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        db = new LoginDB(this);
 
         oldUsernameEditText = findViewById(R.id.ed_old_username_create);
         oldPasswordEditText = findViewById(R.id.ed_old_pass_create);

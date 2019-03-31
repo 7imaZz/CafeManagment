@@ -9,12 +9,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activities.AddDrinkActivity"></activity>
-        <activity android:name=".Activities.ChangeUsernameActivity" />
-        <activity android:name=".Activities.OwnerActivity2" />
-        <activity android:name=".Activities.CreateAccountActivity" />
-        <activity android:name=".Activities.CustomerActivity" />
-        <activity android:name=".Activities.OwnerActivity" />
+        <activity
+            android:name=".Activities.ChangePasswordActivity"
+            android:label="Change Password">
+        </activity>
+        <activity android:name=".Activities.OrdersActivity"
+            android:label="Orders">
+        </activity>
+        <activity
+            android:name=".Activities.HistoryActivity"
+            android:label="History">
+        </activity>
+        <activity
+            android:name=".Activities.TablesActivity"
+            android:label="Tables Information">
+        </activity>
+        <activity
+            android:name=".Activities.AddDrinkActivity"
+            android:label="Drinks">
+        </activity>
+        <activity
+            android:name=".Activities.ChangeUsernameActivity"
+            android:label="Change Username">
+        </activity>
+        <activity
+            android:name=".Activities.OwnerActivity2"
+            android:label="Owner">
+        </activity>
+        <activity
+            android:name=".Activities.CreateAccountActivity"
+            android:label="Create Account">
+        </activity>
+        <activity
+            android:name=".Activities.CustomerActivity"
+            android:label="Customer">
+        </activity>
+        <activity
+            android:name=".Activities.OwnerActivity"
+            android:label="Owner">
+        </activity>
         <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

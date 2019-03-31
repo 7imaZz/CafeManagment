@@ -35,4 +35,26 @@ public class LoginDB extends SQLiteOpenHelper {
 
         db.insert("login", null, contentValues);
     }
+
+    public void changeUser(String user){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("user", user);
+
+        db.update("login", contentValues, "id = ?", new String[]{"1"});
+    }
+
+    public void changePass(String pass){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("password", pass);
+
+        db.update("login", contentValues, "id = ?", new String[]{"1"});
+    }
 }

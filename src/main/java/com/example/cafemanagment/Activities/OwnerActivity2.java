@@ -12,7 +12,7 @@ import com.example.cafemanagment.R;
 
 public class OwnerActivity2 extends AppCompatActivity {
 
-    Button addNewDrinkEditText;
+    Button addNewDrinkEditText, tablesButton, historyButton, ordersButton, changeUsernameButton, changePasswordButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +22,56 @@ public class OwnerActivity2 extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         addNewDrinkEditText = findViewById(R.id.btn_add_drinks);
+        tablesButton = findViewById(R.id.btn_tables);
+        historyButton = findViewById(R.id.btn_history);
+        ordersButton = findViewById(R.id.btn_orders);
+        changeUsernameButton = findViewById(R.id.btn_change_name);
+        changePasswordButton = findViewById(R.id.btn_change_pass);
 
         addNewDrinkEditText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(OwnerActivity2.this, AddDrinkActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        tablesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OwnerActivity2.this, TablesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        historyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OwnerActivity2.this, HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ordersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OwnerActivity2.this, OrdersActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        changeUsernameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OwnerActivity2.this, ChangeUsernameActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        changePasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(OwnerActivity2.this, ChangePasswordActivity.class);
                 startActivity(intent);
             }
         });

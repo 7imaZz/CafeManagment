@@ -83,7 +83,7 @@ public class DrinksDB extends SQLiteOpenHelper{
 
         cursor.moveToFirst();
 
-        while(cursor.moveToNext()){
+        while(!cursor.isAfterLast()){
 
             String name = cursor.getString(cursor.getColumnIndex("name"));
             String price = cursor.getString(cursor.getColumnIndex("price"));
@@ -91,6 +91,8 @@ public class DrinksDB extends SQLiteOpenHelper{
             String time = cursor.getString(cursor.getColumnIndex("time"));
 
             drinks.add(new Drinks(name, price, date, time));
+
+            cursor.moveToNext();
         }
 
         return drinks;
