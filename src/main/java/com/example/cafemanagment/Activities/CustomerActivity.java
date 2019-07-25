@@ -131,9 +131,44 @@ public class CustomerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 boolean in = false;
 
-                for (int i = 0; i<tablesDB.getAllTables().size(); i++){
-                    if (Integer.parseInt(tableNumberEditText.getText().toString()) == tablesDB.getAllTables().get(i).getTableNumber()){
-                        in = true;
+                if (tableNumberEditText.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please Enter Table ID", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    for (int i = 0; i<tablesDB.getAllTables().size(); i++){
+                        if (Integer.parseInt(tableNumberEditText.getText().toString()) == tablesDB.getAllTables().get(i).getTableNumber()){
+                            in = true;
+                        }
+                    }
+                    if (tableNumberEditText.getText().toString().isEmpty() || in == false){
+                        Toast.makeText(getApplicationContext(), "Please Enter Valid Table Number!", Toast.LENGTH_SHORT).show();
+                    }else if (drinksSpinner.getSelectedItemPosition() == 0){
+                        Toast.makeText(getApplicationContext(), "Please Choose Drink!", Toast.LENGTH_SHORT).show();
+                    }else if (quantity == 0){
+                        Toast.makeText(getApplicationContext(), "Please Define The Quantity That You Need!", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        calcClicked = true;
+                        updateBill();
+                    }
+                }
+            }
+        });
+
+        orderButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean in = false;
+
+
+
+                if (tableNumberEditText.getText().toString().isEmpty()){
+                    Toast.makeText(getApplicationContext(), "Please Enter Table ID", Toast.LENGTH_SHORT).show();
+                }else {
+                    for (int i = 0; i<tablesDB.getAllTables().size(); i++){
+                        if (Integer.parseInt(tableNumberEditText.getText().toString()) == tablesDB.getAllTables().get(i).getTableNumber()){
+                            in = true;
+                        }
                     }
                 }
                 if (tableNumberEditText.getText().toString().isEmpty() || in == false){
@@ -142,33 +177,24 @@ public class CustomerActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Please Choose Drink!", Toast.LENGTH_SHORT).show();
                 }else if (quantity == 0){
                     Toast.makeText(getApplicationContext(), "Please Define The Quantity That You Need!", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    calcClicked = true;
-                    updateBill();
-                }
-            }
-        });
+                } else {
 
-        orderButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean thereIsAnOrder = false;
-                for (int i = 0; i<ordersDB.getAllOrders().size(); i++){
-                    if (ordersDB.getAllOrders().get(i).getTableNumber() == Integer.parseInt(tableNumberEditText.getText().toString())){
-                        thereIsAnOrder = true;
+                    boolean thereIsAnOrder = false;
+                    for (int i = 0; i < ordersDB.getAllOrders().size(); i++) {
+                        if (ordersDB.getAllOrders().get(i).getTableNumber() == Integer.parseInt(tableNumberEditText.getText().toString())) {
+                            thereIsAnOrder = true;
+                        }
+                    }
+                    if (thereIsAnOrder) {
+                        Toast.makeText(getApplicationContext(), "There is an order not served yet for this table!", Toast.LENGTH_LONG).show();
+                    } else {
+                        ordersDB.insertOrder(Integer.parseInt(tableNumberEditText.getText().toString()),
+                                spinnerDrinks.get(drinksSpinner.getSelectedItemPosition()).replace("$", "").replaceAll("[0-9]", ""), price * quantity, quantity);
+                        finish();
                     }
                 }
-                if (thereIsAnOrder){
-                    Toast.makeText(getApplicationContext(), "There is an order not served yet for this table!", Toast.LENGTH_LONG).show();
-                }else {
-                    ordersDB.insertOrder(Integer.parseInt(tableNumberEditText.getText().toString()),
-                        spinnerDrinks.get(drinksSpinner.getSelectedItemPosition()).replace("$", "").replaceAll("[0-9]", ""), price*quantity, quantity);
-                    finish();
-                }
             }
         });
-
 
     }
 
